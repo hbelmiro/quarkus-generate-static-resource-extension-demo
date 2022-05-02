@@ -8,8 +8,12 @@ class StaticResourceExtensionProcessor {
 
     @BuildStep
     void produceSourceFiles(BuildProducer<GeneratedResourceBuildItem> resourceProducer) {
-        String path = "META-INF/resources/my_resource.txt";
-
+        String path = "classes/META-INF/resources/my_resource.txt";
+        /*
+        Also tried to use the following:
+        - String path = "META-INF/resources/my_resource.txt";
+        - String path = "/META-INF/resources/my_resource.txt";
+         */
         resourceProducer.produce(new GeneratedResourceBuildItem(path, "This is the content".getBytes()));
     }
 }
